@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>จวยและอนุทันปิ้ง | Moo Ping</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Prompt', sans-serif;
+  background: #faf9f6;
+  color: #252525;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 8%;
+  border-bottom: 1px solid #eae8e2;
+  background: #faf9f6;
+}
+
+.logo {
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.logo span {
+  color: #b77a43;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  margin-left: 25px;
+  font-size: 14px;
+}
+
+.hero {
+  padding: 85px 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+.hero-text {
+  max-width: 520px;
+}
+
+.tag {
+  color: #ae7541;
+  font-size: 13px;
+  letter-spacing: 2px;
+}
+
+.hero h1 {
+  font-size: clamp(36px, 6vw, 64px);
+  line-height: 1.3;
+  margin: 18px 0;
+}
+
+.hero p {
+  color: #777;
+  line-height: 2;
+}
+
+.hero-image {
+  width: 45%;
+  min-height: 280px;
+  background: #eee5d8;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 100px;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 14px 28px;
+  background: #252525;
+  color: white;
+  text-decoration: none;
+  border-radius: 9px;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.section {
+  padding: 65px 8%;
+}
+
+.section-title {
+  font-size: 30px;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  color: #888;
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.product {
+  background: white;
+  padding: 18px;
+  border-radius: 16px;
+  border: 1px solid #eee;
+}
+
+.product-image {
+  height: 150px;
+  background: #f4eee5;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 65px;
+  margin-bottom: 18px;
+}
+
+.product h3 {
+  font-size: 17px;
+}
+
+.product p {
+  color: #999;
+  font-size: 13px;
+  margin: 5px 0 14px;
+}
+
+.price {
+  font-weight: 600;
+  color: #a66d3b;
+}
+
+.counter {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-top: 15px;
+}
+
+.counter button {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 8px;
+  background: #f0ede7;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.order {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  border: 1px solid #eee;
+  max-width: 650px;
+}
+
+.order input, .order select {
+  width: 100%;
+  padding: 13px;
+  margin: 9px 0 17px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-family: inherit;
+  background: white;
+}
+
+.order label {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.summary {
+  background: #f8f6f1;
+  padding: 18px;
+  border-radius: 10px;
+  margin: 15px 0;
+  line-height: 2;
+}
+
+.total {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.submit {
+  width: 100%;
+  padding: 15px;
+  background: #252525;
+  color: white;
+  border: none;
+  border-radius: 9px;
+  font-family: inherit;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.success {
+  display: none;
+  padding: 25px;
+  margin-top: 20px;
+  background: #edf5ec;
+  border-radius: 12px;
+  line-height: 2;
+}
+
+footer {
+  text-align: center;
+  padding: 35px 15px;
+  color: #999;
+  border-top: 1px solid #eee;
+  font-size: 13px;
+}
+
+@media(max-width: 700px) {
+  header {
+    padding: 18px 5%;
+  }
+
+  nav a {
+    margin-left: 10px;
+    font-size: 12px;
+  }
+
+  .hero {
+    flex-direction: column;
+    padding: 55px 6%;
+  }
+
+  .hero-image {
+    width: 100%;
+    min-height: 220px;
+  }
+
+  .section {
+    padding: 45px 6%;
+  }
+
+  .products {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">จวยและอนุทัน<span>ปิ้ง.</span></div>
+  <nav>
+    <a href="#home">หน้าหลัก</a>
+    <a href="#menu">เมนู</a>
+    <a href="#order">จองสินค้า</a>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-text">
+    <div class="tag">MOO PING • FRESH EVERY DAY</div>
+    <h1>หมูปิ้งร้อน ๆ<br>พร้อมเสิร์ฟแล้ว!</h1>
+    <p>
+      อร่อยเต็มคำ หอมกรุ่นจากเตา<br>
+      เลือกเมนูที่ชอบ แล้วจองล่วงหน้าได้เลย
+    </p>
+    <a href="#menu" class="btn">เลือกเมนู →</a>
+  </div>
+
+  <div class="hero-image">🍢</div>
+</section>
+
+<section class="section" id="menu">
+  <h2 class="section-title">เมนูของเรา</h2>
+  <p class="subtitle">เลือกความอร่อยที่คุณต้องการ</p>
+
+  <div class="products" id="products"></div>
+</section>
+
+<section class="section" id="order">
+  <h2 class="section-title">จองสินค้า</h2>
+  <p class="subtitle">กรอกข้อมูลเพื่อทำรายการจอง</p>
+
+  <div class="order">
+    <label>ชื่อผู้จอง</label>
+    <input id="customer" placeholder="กรอกชื่อของคุณ">
+
+    <label>เบอร์โทรศัพท์</label>
+    <input id="phone" type="tel" placeholder="08X-XXX-XXXX">
+
+    <label>เวลารับสินค้า</label>
+    <select id="pickup">
+      <option value="">-- เลือกเวลารับสินค้า --</option>
+      <option>07:00 น.</option>
+      <option>08:00 น.</option>
+      <option>09:00 น.</option>
+      <option>10:00 น.</option>
+      <option>11:00 น.</option>
+      <option>12:00 น.</option>
+      <option>13:00 น.</option>
+      <option>14:00 น.</option>
+      <option>15:00 น.</option>
+      <option>16:00 น.</option>
+    </select>
+
+    <h3>รายการของคุณ</h3>
+    <div class="summary" id="summary">
+      ยังไม่มีสินค้า
+    </div>
+
+    <div class="total" id="total">รวม 0 บาท</div>
+
+    <button class="submit" onclick="submitOrder()">
+      ยืนยันการจองสินค้า
+    </button>
+
+    <div class="success" id="success"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="logo">จวยและอนุทันปิ้ง.</div>
+  <p>ขอบคุณที่เลือกใช้บริการของเรา ❤️</p>
+  <p>© 2026 Juay & Anuthan Moo Ping</p>
+</footer>
+
+<script>
+const menu = [
+  {
+    name: "หมูปิ้งธรรมดา",
+    detail: "หมูปิ้งสูตรต้นตำรับ",
+    price: 10,
+    emoji: "🍢"
+  },
+  {
+    name: "หมูปิ้งนมสด",
+    detail: "หอมนุ่ม รสชาติกลมกล่อม",
+    price: 12,
+    emoji: "🥩"
+  },
+  {
+    name: "ข้าวเหนียว",
+    detail: "ข้าวเหนียวนุ่มร้อน ๆ",
+    price: 5,
+    emoji: "🍚"
+  }
+];
+
+let cart = [0, 0, 0];
+
+function renderProducts() {
+  const container = document.getElementById("products");
+
+  container.innerHTML = menu.map((item, i) => `
+    <div class="product">
+      <div class="product-image">${item.emoji}</div>
+      <h3>${item.name}</h3>
+      <p>${item.detail}</p>
+      <div class="price">${item.price} บาท</div>
+
+      <div class="counter">
+        <button onclick="changeQty(${i}, -1)">−</button>
+        <span id="qty-${i}">${cart[i]}</span>
+        <button onclick="changeQty(${i}, 1)">+</button>
+      </div>
+    </div>
+  `).join("");
+}
+
+function changeQty(index, amount) {
+  cart[index] = Math.max(0, cart[index] + amount);
+  document.getElementById("qty-" + index).textContent = cart[index];
+  updateSummary();
+}
+
+function updateSummary() {
+  let total = 0;
+  let lines = [];
+
+  menu.forEach((item, i) => {
+    if (cart[i] > 0) {
+      const subtotal = cart[i] * item.price;
+      total += subtotal;
+      lines.push(
+        `${item.name} × ${cart[i]} = ${subtotal} บาท`
+      );
+    }
+  });
+
+  document.getElementById("summary").innerHTML =
+    lines.length ? lines.join("<br>") : "ยังไม่มีสินค้า";
+
+  document.getElementById("total").textContent =
+    "รวม " + total + " บาท";
+}
+
+function submitOrder() {
+  const name = document.getElementById("customer").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+  const pickup = document.getElementById("pickup").value;
+
+  if (!name || !phone || !pickup) {
+    alert("กรุณากรอกข้อมูลให้ครบทุกช่อง");
+    return;
+  }
+
+  if (!/^[0-9]{9,10}$/.test(phone)) {
+    alert("กรุณากรอกเบอร์โทรศัพท์ให้ถูกต้อง");
+    return;
+  }
+
+  const totalItems = cart.reduce((a, b) => a + b, 0);
+
+  if (totalItems === 0) {
+    alert("กรุณาเลือกสินค้าอย่างน้อย 1 รายการ");
+    return;
+  }
+
+  let total = 0;
+  let details = [];
+
+  menu.forEach((item, i) => {
+    if (cart[i] > 0) {
+      total += cart[i] * item.price;
+      details.push(`${item.name} × ${cart[i]}`);
+    }
+  });
+
+  const orderId = "JP" + Date.now().toString().slice(-6);
+
+  document.getElementById("success").style.display = "block";
+
+  document.getElementById("success").innerHTML = `
+    <h3>✓ ทำรายการสำเร็จ!</h3>
+    หมายเลขจอง: ${orderId}<br>
+    ชื่อผู้จอง: ${name}<br>
+    เบอร์โทร: ${phone}<br>
+    เวลารับ: ${pickup}<br>
+    รายการ: ${details.join(", ")}<br>
+    <strong>ยอดรวม ${total} บาท</strong>
+    <br><br>
+    <small>นี่เป็นรายการทดลอง ยังไม่ได้ส่งไปยังร้านค้าจริง</small>
+  `;
+
+  document.getElementById("success").scrollIntoView({
+    behavior: "smooth",
+    block: "center"
+  });
+}
+
+renderProducts();
+updateSummary();
+</script>
+
+</body>
+</html>
